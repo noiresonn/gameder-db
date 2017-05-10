@@ -1,5 +1,6 @@
 package com.gameder.db;
 
+import com.gameder.app.handlers.profiles.Profile;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -9,6 +10,8 @@ import java.io.*;
 
 @RestController
 public class Query {
+    private static TreeSet<Profile> tree = new TreeSet<Profile>();
+
     private static final String ENDPOINT = "/api/query";
 
     @CrossOrigin
@@ -33,8 +36,8 @@ public class Query {
             Object obj = ois.readObject();
             ois.close();
 
-            TreeSet<Integer> tree = (TreeSet) obj;
-            System.out.printf("YAY: %d\n", tree.first());
+            tree = (TreeSet) obj;
+            System.out.printf("YAY: %d\n", tree.first().getName());
         } catch (Exception ex) {
             System.out.printf("'post' query failed: %s\n", ex.toString());
         }
