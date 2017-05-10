@@ -20,7 +20,7 @@ public class Query {
         try {
             BufferedOutputStream bos = new BufferedOutputStream(response.getOutputStream());
             ObjectOutputStream oos = new ObjectOutputStream(bos);
-            oos.writeObject(new TreeSet<Integer>());
+            oos.writeObject(tree);
             oos.close();
         } catch (IOException ex) {
             System.out.printf("'get' query failed: %s\n", ex.getLocalizedMessage());
@@ -37,7 +37,6 @@ public class Query {
             ois.close();
 
             tree = (TreeSet) obj;
-            System.out.printf("YAY: %d\n", tree.first().getName());
         } catch (Exception ex) {
             System.out.printf("'post' query failed: %s\n", ex.toString());
         }

@@ -55,4 +55,5 @@ public class Profile implements Comparable<Profile>, Serializable{
     public String toString() {
         return this.name + " , " + this.img + " , " + this.preference;
     }
+
 }
