@@ -34,7 +34,7 @@ public class Query {
             ois.close();
 
             TreeSet<Integer> tree = (TreeSet) obj;
-            System.out.printf("YAY: %d", tree.first());
+            System.out.printf("YAY: %d\n", tree.first());
         } catch (Exception ex) {
             System.out.printf("'post' query failed: %s\n", ex.toString());
         }
